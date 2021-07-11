@@ -2,7 +2,7 @@
 	This is a template file that show how a handler should be
 	in order to be accepted as endpoint
 */
-package webservices
+package main
 
 import (
 	"fmt"

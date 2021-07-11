@@ -2,7 +2,7 @@
 	This File Starts the server in different wayss
 */
 
-package webservices
+package main
 
 import (
 	"errors"
@@ -14,6 +14,11 @@ import (
 )
 
 var DEFAULT_PORT = 8080
+
+func main() {
+	AddEndpoint("/", HomeHandler)
+	StartServer(3000)
+}
 
 /*
 	It starts the Server. It accepts as parameter an integer for port number

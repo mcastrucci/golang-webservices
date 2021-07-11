@@ -1,4 +1,4 @@
-package webservices
+package main
 
 import (
 	"net/http"
@@ -43,7 +43,7 @@ func endPointHandler(w http.ResponseWriter, r *http.Request) {
 		/*
 			We also need to check if we have a valid handler for it
 		*/
-		handler, exist := endpointsHandlers["url"]
+		handler, exist := endpointsHandlers[url]
 		if exist {
 			handler(w, r) // if it exists, we just call it
 		} else {
