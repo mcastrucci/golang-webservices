@@ -15,19 +15,6 @@ import (
 
 var DEFAULT_PORT = 8080
 
-func main() {
-	AddEndpoint("/", HomeHandler)
-	AddEndpoint("/home", HomeHandler)
-	AddEndpoint("/asddsa", HomeHandler)
-
-	ok, err := StartServer()
-	if err != nil {
-		panic(err)
-	} else {
-		log.Print(ok)
-	}
-}
-
 /*
 	It starts the Server. It accepts as parameter an integer for port number
 	or Args that would contain port number.

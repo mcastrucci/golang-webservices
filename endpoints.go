@@ -1,15 +1,6 @@
 /*
-	This file is destinated to put the endpoints that the web service or REST Api will use
-	They should be of type "Handler" and be defined in the endpoints.json in order to use
-	if endpoints.json does not exist, create one with the following sintax
-	{
-		"endpoints": [
-			{
-				"url": "/",
-				"handler": "HomeHandler"
-			}
-		]
-	}
+	This is a template file that show how a handler should be
+	in order to be accepted as endpoint
 */
 package webservices
 
