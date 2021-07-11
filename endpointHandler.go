@@ -1,8 +1,6 @@
 package webservices
 
 import (
-	"fmt"
-	"log"
 	"net/http"
 )
 
@@ -30,7 +28,7 @@ func AddEndpoint(url string, handler FunctionHandler) {
 
 /*
 	An endpoint handler with some security implemented on it
-	It will check form an arrar of endpoints if the endpoint and method is available or not
+	It will check form an array of endpoints if the endpoint and method is available or not
 	and if we have a handler for it
 */
 func endPointHandler(w http.ResponseWriter, r *http.Request) {
@@ -39,11 +37,18 @@ func endPointHandler(w http.ResponseWriter, r *http.Request) {
 		We check if the url requested is available in our application
 		if it does not exist or user is not allowed, we reject with statusNotFound
 	*/
-	log.Print(url)
 	var validUrl = ContainsUrl(allowedEndpoints, url)
 
 	if validUrl {
-		fmt.Fprintf(w, "Welcome to the HomePage!")
+		/*
+			We also need to check if we have a valid handler for it
+		*/
+		handler, exist := endpointsHandlers["url"]
+		if exist {
+			handler(w, r) // if it exists, we just call it
+		} else {
+			http.Error(w, "invalid direction.", http.StatusNotFound)
+		}
 	} else {
 		http.Error(w, "Method is not supported.", http.StatusNotFound)
 	}
