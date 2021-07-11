@@ -2,7 +2,7 @@
 	This File Starts the server in different wayss
 */
 
-package main
+package webservices
 
 import (
 	"errors"
